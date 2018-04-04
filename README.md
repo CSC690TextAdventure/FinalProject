@@ -1,6 +1,11 @@
 # FinalProject
 Text based adventure game for iOS
 
+# Members
+        Scott Penn
+        Matthew Ridenour
+        Carlos Velac
+        Kento Yamanaka
 
 # Story Idea
 
@@ -29,3 +34,22 @@ Text based adventure game for iOS
 - Sound
 - Item icons
 - Using SpriteKit/ other game related libraries.
+
+# Room View
+
+![Room View](https://github.com/CSC690TextAdventure/FinalProject/blob/master/Documentation/IMG_0116%202.JPG)
+
+# Map View
+
+![Map idea](https://github.com/CSC690TextAdventure/FinalProject/blob/master/Documentation/IMG_0118.JPG)
+
+# Time Table
+
+- Planning and MVC Skeleton : One Week
+- Room, Events, and Object implementation : One Week
+- Room View, Text View, Options View : Two Weeks
+- Story implementation : Two Weeks
+- Map View : One Week
+- Refinements and Bug Fixes : Forever
+
+(Note a lot of this work can be done concurrently)
