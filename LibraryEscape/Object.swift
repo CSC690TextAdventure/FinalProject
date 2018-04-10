@@ -16,7 +16,7 @@ protocol Object : class {
     
     var InteractEvent : Event? {get set}
     
-    var UseEvent : Event? {get set}
+    var UseEvent : Event? {get set} //Is this necessary?
     
     var inventoryText : String {get}
     
