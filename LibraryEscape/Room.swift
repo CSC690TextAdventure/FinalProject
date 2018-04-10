@@ -19,4 +19,6 @@ protocol Room {
     
     func getThoughts () -> String
     
+    func changeRoom(to room: Room)
+    
 }
