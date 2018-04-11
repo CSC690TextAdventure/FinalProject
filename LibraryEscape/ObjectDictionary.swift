@@ -8,11 +8,21 @@
 
 import Foundation
 
-let globalObjects : [String : Object] = {
-    
-    //["StudyRoomCKey" : myObject]
-    
-}
+var globalObjects = [String : Object]()
 
-//myObject = Object(name: "StudyRoomKey")
+class StudyRoomBKey: Object {
+    var objectName: String
+    
+    var LookAtEvent: Event?
+    
+    var PickUpEvent: Event?
+    
+    var InteractEvent: Event?
+    
+    var UseEvent: Event?
+    
+    var inventoryText: String
+    
+    <#code#>
+}
 

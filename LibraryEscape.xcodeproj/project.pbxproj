@@ -20,7 +20,7 @@
 		D2725F052073FF390073B19E /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2725F042073FF390073B19E /* Object.swift */; };
 		D2725F072073FF670073B19E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2725F062073FF670073B19E /* Event.swift */; };
 		D2725F092073FF9C0073B19E /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2725F082073FF9C0073B19E /* Inventory.swift */; };
-		D2725F0B2074049A0073B19E /* ObjectDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2725F0A2074049A0073B19E /* ObjectDictionary.swift */; };
+		D2799E60207D8E87001127FB /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2799E5F207D8E87001127FB /* RoomViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +51,7 @@
 		D2725F042073FF390073B19E /* Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
 		D2725F062073FF670073B19E /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		D2725F082073FF9C0073B19E /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
-		D2725F0A2074049A0073B19E /* ObjectDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDictionary.swift; sourceTree = "<group>"; };
+		D2799E5F207D8E87001127FB /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,9 +93,13 @@
 		D2725ED92073FE1E0073B19E /* LibraryEscape */ = {
 			isa = PBXGroup;
 			children = (
-				D2725F012073FEDE0073B19E /* Misc */,
+				D2725EDA2073FE1E0073B19E /* AppDelegate.swift */,
+				D2725EDC2073FE1E0073B19E /* GameScene.sks */,
+				D2725EDE2073FE1E0073B19E /* Actions.sks */,
+				D2725EEC2073FE1E0073B19E /* Info.plist */,
 				D2725EE02073FE1E0073B19E /* GameScene.swift */,
 				D2725EE22073FE1E0073B19E /* GameViewController.swift */,
+				D2799E5F207D8E87001127FB /* RoomViewController.swift */,
 				D2725EE42073FE1E0073B19E /* Main.storyboard */,
 				D2725EE72073FE1E0073B19E /* Assets.xcassets */,
 				D2725EE92073FE1E0073B19E /* LaunchScreen.storyboard */,
@@ -103,7 +107,6 @@
 				D2725F042073FF390073B19E /* Object.swift */,
 				D2725F062073FF670073B19E /* Event.swift */,
 				D2725F082073FF9C0073B19E /* Inventory.swift */,
-				D2725F0A2074049A0073B19E /* ObjectDictionary.swift */,
 			);
 			path = LibraryEscape;
 			sourceTree = "<group>";
@@ -115,17 +118,6 @@
 				D2725EF72073FE1E0073B19E /* Info.plist */,
 			);
 			path = LibraryEscapeTests;
-			sourceTree = "<group>";
-		};
-		D2725F012073FEDE0073B19E /* Misc */ = {
-			isa = PBXGroup;
-			children = (
-				D2725EDA2073FE1E0073B19E /* AppDelegate.swift */,
-				D2725EDC2073FE1E0073B19E /* GameScene.sks */,
-				D2725EDE2073FE1E0073B19E /* Actions.sks */,
-				D2725EEC2073FE1E0073B19E /* Info.plist */,
-			);
-			path = Misc;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,7 +231,7 @@
 				D2725EE32073FE1E0073B19E /* GameViewController.swift in Sources */,
 				D2725F032073FEF50073B19E /* Room.swift in Sources */,
 				D2725F072073FF670073B19E /* Event.swift in Sources */,
-				D2725F0B2074049A0073B19E /* ObjectDictionary.swift in Sources */,
+				D2799E60207D8E87001127FB /* RoomViewController.swift in Sources */,
 				D2725EDB2073FE1E0073B19E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
