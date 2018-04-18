@@ -17,8 +17,10 @@ Text based adventure game for iOS
 
 # Must Have Features
 
-- Map
-- Inventory
+- MapView
+- InventoryView
+- RoomView
+- StoryView
 - Events that change object state and room
 - Objects which have events tied to them
 - Only one room loaded at any time
@@ -33,7 +35,6 @@ Text based adventure game for iOS
 - Key inputs and other puzzle features
 - Sound
 - Item icons
-- Using SpriteKit/ other game related libraries.
 
 # Room View
 
@@ -42,6 +43,24 @@ Text based adventure game for iOS
 # Map View
 
 ![Map idea](https://github.com/CSC690TextAdventure/FinalProject/blob/master/Documentation/IMG_0118.JPG)
+
+# Milestone 2
+
+![Wireframe](https://github.com/CSC690TextAdventure/FinalProject/blob/master/Documentation/Wireframe.JPG)
+
+
+# Features
+
+-Scott : StoryView
+~~
+-Carlos : MapView
+~~
+-Kento : RoomView
+~~
+-Matt : InventoryView
+
+Everything else is for everyone to contribute.
+
 
 # Time Table
 
