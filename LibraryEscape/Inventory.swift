@@ -10,6 +10,16 @@ import Foundation
 
 class Inventory {
     
-    var items : [Object]
+    var items = [Object]()
+    
+    func addItem (_ item : Object) {
+        items.append(item)
+    }
+    
+    func removeItem (_ name : String) {
+        items = items.filter { item in
+            item.objectName != name
+        }
+    }
     
 }
