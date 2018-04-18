@@ -8,11 +8,9 @@
 
 import UIKit
 
-extension UIView {
-    
-}
 
 class RoomViewController: UIViewController {
+    
     
     
     let room = StudyRoomB()
