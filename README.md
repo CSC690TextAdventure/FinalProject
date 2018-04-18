@@ -49,6 +49,18 @@ Text based adventure game for iOS
 ![Wireframe](https://github.com/CSC690TextAdventure/FinalProject/blob/master/Documentation/Wireframe.JPG)
 
 
+# Features
+
+-Scott : StoryView
+~~
+-Carlos : MapView
+~~
+-Kento : RoomView
+~~
+-Matt : InventoryView
+
+Everything else is for everyone to contribute.
+
 
 # Time Table
 
