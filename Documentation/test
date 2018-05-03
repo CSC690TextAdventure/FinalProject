@@ -1,1 +1,47 @@
 
+hello
+
+
+
+This is what I have started with for the MapView portions of the game.
+
+//
+// MapView.swift
+// LibraryEscape
+//
+// Created by Carlos Velasco on 4/10/18.
+// Copyright © 2018 Scott Bot Industries. All rights reserved.
+//
+
+import Foundation
+
+import MapKit
+
+class ViewController: UIViewController {
+
+@IBOutlet weak var mapView: MKMapView!
+override func viewDidLoad() {
+    super.viewDidLoad()
+    // Do any additional setup after loading the view, typically from a nib.
+    mapView.showsBuildings = true
+    let eiffelTowerCoordinates = CLLocationCoordinate2DMake(48.85815,2.29452)
+    mapView.region = MKCoordinateRegionMakeWithDistance(eiffelTowerCoordinates, 1000,100)
+    
+    mapView.mapType = MKMapType.standard
+    
+    // 3D Camera
+    let mapCamera = MKMapCamera()
+    mapCamera.centerCoordinate = eiffelTowerCoordinates
+    mapCamera.pitch = 45
+    mapCamera.altitude = 500
+    mapCamera.heading = 45
+    
+    // Set MKmapView camera property
+    self.mapView.camera = mapCamera
+}
+
+override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
+}
+}
