@@ -6,8 +6,6 @@
 //  Copyright © 2018 Scott Bot Industries. All rights reserved.
 //
 
-import Foundation
-
 protocol Room {
     var roomName : String {get}
     
@@ -26,13 +24,15 @@ enum Direction {
 }
 
 struct StudyRoomB : Room {
-    let roomName = "Ground Floor: Group Study Room B"
+    var roomName: String = "Study Commons Room B"
     
-    var exits = [Direction.North : "Ground Floor: Study Commons West"]
+    var exits: [Direction : String] = [.North : "StudyCommonsWest"]
     
-    var objects = ["StudyRoomCDoor", "StudyRoomCKey"]
+    var objects: [String] = ["StudyRoomBKey"]
     
     var inventory: Inventory?
     
-    var thoughtText = "I was studying here last night, I must have fallen asleep. Where is everyone?"
+    var thoughtText: String = ""
 }
+
+

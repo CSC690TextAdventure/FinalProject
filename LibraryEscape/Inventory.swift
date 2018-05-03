@@ -6,8 +6,6 @@
 //  Copyright © 2018 Scott Bot Industries. All rights reserved.
 //
 
-import Foundation
-
 class Inventory {
     
     var items = [Object]()
