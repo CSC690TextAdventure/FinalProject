@@ -1,0 +1,26 @@
+{
+  "stickers" : [
+    {
+      "filename" : "MapView Final image 1.sticker"
+    },
+    {
+      "filename" : "MapView Final image 2.sticker"
+    },
+    {
+      "filename" : "MapView Final image 3.sticker"
+    },
+    {
+      "filename" : "MapView Final image 4.sticker"
+    },
+    {
+      "filename" : "MapView Final image.sticker"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  },
+  "properties" : {
+    "grid-size" : "small"
+  }
+}
