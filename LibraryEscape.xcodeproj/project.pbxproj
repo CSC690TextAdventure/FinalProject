@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D24669BE20A27C9800896C52 /* RoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24669BD20A27C9800896C52 /* RoomView.swift */; };
 		D2725EDB2073FE1E0073B19E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2725EDA2073FE1E0073B19E /* AppDelegate.swift */; };
 		D2725EE62073FE1E0073B19E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2725EE42073FE1E0073B19E /* Main.storyboard */; };
 		D2725EE82073FE1E0073B19E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2725EE72073FE1E0073B19E /* Assets.xcassets */; };
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D24669BD20A27C9800896C52 /* RoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomView.swift; sourceTree = "<group>"; };
 		D2725ED72073FE1E0073B19E /* LibraryEscape.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LibraryEscape.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2725EDA2073FE1E0073B19E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2725EE52073FE1E0073B19E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -89,15 +91,16 @@
 			children = (
 				D2725EDA2073FE1E0073B19E /* AppDelegate.swift */,
 				D2725EEC2073FE1E0073B19E /* Info.plist */,
-				D2799E5F207D8E87001127FB /* RoomViewController.swift */,
 				D2725EE42073FE1E0073B19E /* Main.storyboard */,
-				D2725EE72073FE1E0073B19E /* Assets.xcassets */,
 				D2725EE92073FE1E0073B19E /* LaunchScreen.storyboard */,
+				D2725EE72073FE1E0073B19E /* Assets.xcassets */,
+				D2799E5F207D8E87001127FB /* RoomViewController.swift */,
 				D2EBF0E3209B8CCE0003ED29 /* StoryView.swift */,
 				D2725F022073FEF50073B19E /* Room.swift */,
 				D2725F042073FF390073B19E /* Object.swift */,
 				D2725F062073FF670073B19E /* Event.swift */,
 				D2725F082073FF9C0073B19E /* Inventory.swift */,
+				D24669BD20A27C9800896C52 /* RoomView.swift */,
 			);
 			path = LibraryEscape;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2725F052073FF390073B19E /* Object.swift in Sources */,
+				D24669BE20A27C9800896C52 /* RoomView.swift in Sources */,
 				D2725F092073FF9C0073B19E /* Inventory.swift in Sources */,
 				D2725F032073FEF50073B19E /* Room.swift in Sources */,
 				D2EBF0E4209B8CCE0003ED29 /* StoryView.swift in Sources */,

@@ -6,6 +6,10 @@
 //  Copyright © 2018 Scott Bot Industries. All rights reserved.
 //
 
+let RoomDictionary : [String : Room] = [
+    "Study Commons Room B" : StudyRoomB()
+]
+
 protocol Room {
     var roomName : String {get}
     
@@ -17,11 +21,14 @@ protocol Room {
     
     var thoughtText : String {get set}
     
+    var roomDescription : String {get}
+    
 }
 
 enum Direction {
     case North, South, East, West
 }
+
 
 struct StudyRoomB : Room {
     var roomName: String = "Study Commons Room B"
@@ -33,6 +40,8 @@ struct StudyRoomB : Room {
     var inventory: Inventory?
     
     var thoughtText: String = ""
+    
+    var roomDescription: String = "Study Commons Room B, wow!"
 }
 
 
