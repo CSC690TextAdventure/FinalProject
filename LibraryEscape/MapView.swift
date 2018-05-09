@@ -12,7 +12,7 @@ class MapView : UIScrollView {
         
         roomName.text = name
         
-        let myImages = ["MapView Final image 1", "MapView Final image 2", "MapView Final image 3", "MapView Final image 4", "MapView Final image" ]
+        let myImages = ["MapView_Start, MapView_1, MapView_2,MapView_3,MapView_4,MapView_5, MapView_6, MapView_7, MapView_8, MapView_9, MapView_10, MapView_Finish" ]
         let imageWidth:CGFloat = 66
         let imageHeight:CGFloat = 66
         var xPosition:CGFloat = 0
@@ -41,16 +41,16 @@ class MapView : UIScrollView {
         //ScrollViewFreunde.contentSize = CGSize(width: imageWidth, height: imageHeight)
         
         
-}
+    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-        func moveTo(room : Room) {
-            
-          
-        }
+    func moveTo(room : Room) {
+        
+        
+    }
     
     //override func scrollRectToVisible(_ rect: CGRect, animated: Bool)
     override func scrollRectToVisible(_ rect: CGRect, _:!(x: roomName.xCoord, y: roomName.yCoord, width: width, height: height), animated: true)
@@ -58,14 +58,6 @@ class MapView : UIScrollView {
     
     
     
-    }
-
-
-
-
-
-
-
-
+}
 
 
