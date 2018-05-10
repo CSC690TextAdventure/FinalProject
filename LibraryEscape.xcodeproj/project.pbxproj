@@ -18,6 +18,7 @@
 		D2725F072073FF670073B19E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2725F062073FF670073B19E /* Event.swift */; };
 		D2725F092073FF9C0073B19E /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2725F082073FF9C0073B19E /* Inventory.swift */; };
 		D2799E60207D8E87001127FB /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2799E5F207D8E87001127FB /* RoomViewController.swift */; };
+		D2A9CE6B20A4E5E5004EE81D /* InventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A9CE6A20A4E5E5004EE81D /* InventoryView.swift */; };
 		D2EBF0E4209B8CCE0003ED29 /* StoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EBF0E3209B8CCE0003ED29 /* StoryView.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		D2725F062073FF670073B19E /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		D2725F082073FF9C0073B19E /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
 		D2799E5F207D8E87001127FB /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
+		D2A9CE6A20A4E5E5004EE81D /* InventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryView.swift; sourceTree = "<group>"; };
 		D2EBF0E3209B8CCE0003ED29 /* StoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,6 +103,7 @@
 				D2725F062073FF670073B19E /* Event.swift */,
 				D2725F082073FF9C0073B19E /* Inventory.swift */,
 				D24669BD20A27C9800896C52 /* RoomView.swift */,
+				D2A9CE6A20A4E5E5004EE81D /* InventoryView.swift */,
 			);
 			path = LibraryEscape;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 				D2725F052073FF390073B19E /* Object.swift in Sources */,
 				D24669BE20A27C9800896C52 /* RoomView.swift in Sources */,
 				D2725F092073FF9C0073B19E /* Inventory.swift in Sources */,
+				D2A9CE6B20A4E5E5004EE81D /* InventoryView.swift in Sources */,
 				D2725F032073FEF50073B19E /* Room.swift in Sources */,
 				D2EBF0E4209B8CCE0003ED29 /* StoryView.swift in Sources */,
 				D2725F072073FF670073B19E /* Event.swift in Sources */,
