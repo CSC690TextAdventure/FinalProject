@@ -10,30 +10,29 @@ import UIKit
 
 class RoomViewController: UIViewController {
     
-    var currentRoom : Room!
+    var currentRoom : Room = StudyRoomB()
+    let currentInventory = Inventory()
     
     var topView : UIView?
     var bottomView : StoryView?
-    
-    
-    let key = StudyRoomBKey()
-    let inventory = Inventory()
     
     @IBOutlet weak var Text: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        currentRoom = StudyRoomB()
-        
         initializeTopView()
         initializeBottomView()
+        displayInventoryView()
+        
+        currentInventory.addItem(StudyRoomBKey())
     }
     
     func displayRoomView() {
         topView = RoomView(currentRoom)
         let roomView = topView as! RoomView
         roomView.delegate = self
+        alignTopView()
         self.view.setNeedsDisplay()
     }
     
@@ -41,19 +40,27 @@ class RoomViewController: UIViewController {
         //topView = MapView()
         //let mapView = topView as! MapView
         //mapView.delegate = self
+        //alignTopView()
         //self.view.setNeedsDisplay()
     }
     
     func displayInventoryView() {
-        //topView = InventoryView()
-        //let inventoryView = topView as! InventoryView
-        //inventoryView.delegate = self
-        //self.view.setNeedsDisplay()
+        topView?.removeFromSuperview()
+        topView = InventoryView(currentInventory)
+        self.view.addSubview(topView!)
+        let inventoryView = topView as! InventoryView
+        inventoryView.delegate = self
+        alignTopView()
+        self.view.setNeedsDisplay()
     }
     
     func initializeTopView() {
         topView = RoomView(currentRoom)
         self.view.addSubview(topView!)
+        alignTopView()
+    }
+    
+    func alignTopView() {
         topView?.align(.top)
         topView?.align(.leading)
         topView?.align(.trailing)
@@ -71,10 +78,6 @@ class RoomViewController: UIViewController {
         bottomView?.displayText(text)
     }
     
-    @IBAction func LookAt(_ sender: UIButton) {
-        Text.text = key.LookAtEvent?.eventText
-        key.LookAtEvent?.runEvent(in: currentRoom, for: key)
-    }
 }
 
 extension RoomViewController : RoomViewDelegate {
@@ -90,7 +93,9 @@ extension RoomViewController : RoomViewDelegate {
 
 //extension RoomViewController : MapViewDelegate {}
 
-//extension RoomViewController : InventoryViewDelegate {}
+extension RoomViewController : UITableViewDelegate {
+    
+}
 
 
 extension UIView {
