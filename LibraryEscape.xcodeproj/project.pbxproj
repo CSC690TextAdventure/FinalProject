@@ -17,8 +17,10 @@
 		D2725F052073FF390073B19E /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2725F042073FF390073B19E /* Object.swift */; };
 		D2725F072073FF670073B19E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2725F062073FF670073B19E /* Event.swift */; };
 		D2725F092073FF9C0073B19E /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2725F082073FF9C0073B19E /* Inventory.swift */; };
-		D2799E60207D8E87001127FB /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2799E5F207D8E87001127FB /* RoomViewController.swift */; };
+		D2799E60207D8E87001127FB /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2799E5F207D8E87001127FB /* GameViewController.swift */; };
 		D2A9CE6B20A4E5E5004EE81D /* InventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A9CE6A20A4E5E5004EE81D /* InventoryView.swift */; };
+		D2C1BE7220A504DB0066D6F3 /* InventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C1BE7120A504DB0066D6F3 /* InventoryViewController.swift */; };
+		D2C1BE7420A512FF0066D6F3 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C1BE7320A512FF0066D6F3 /* RoomViewController.swift */; };
 		D2EBF0E4209B8CCE0003ED29 /* StoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EBF0E3209B8CCE0003ED29 /* StoryView.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,8 +49,10 @@
 		D2725F042073FF390073B19E /* Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
 		D2725F062073FF670073B19E /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		D2725F082073FF9C0073B19E /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
-		D2799E5F207D8E87001127FB /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
+		D2799E5F207D8E87001127FB /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		D2A9CE6A20A4E5E5004EE81D /* InventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryView.swift; sourceTree = "<group>"; };
+		D2C1BE7120A504DB0066D6F3 /* InventoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryViewController.swift; sourceTree = "<group>"; };
+		D2C1BE7320A512FF0066D6F3 /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
 		D2EBF0E3209B8CCE0003ED29 /* StoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,13 +100,15 @@
 				D2725EE42073FE1E0073B19E /* Main.storyboard */,
 				D2725EE92073FE1E0073B19E /* LaunchScreen.storyboard */,
 				D2725EE72073FE1E0073B19E /* Assets.xcassets */,
-				D2799E5F207D8E87001127FB /* RoomViewController.swift */,
+				D2799E5F207D8E87001127FB /* GameViewController.swift */,
 				D2EBF0E3209B8CCE0003ED29 /* StoryView.swift */,
 				D2725F022073FEF50073B19E /* Room.swift */,
 				D2725F042073FF390073B19E /* Object.swift */,
 				D2725F062073FF670073B19E /* Event.swift */,
 				D2725F082073FF9C0073B19E /* Inventory.swift */,
+				D2C1BE7320A512FF0066D6F3 /* RoomViewController.swift */,
 				D24669BD20A27C9800896C52 /* RoomView.swift */,
+				D2C1BE7120A504DB0066D6F3 /* InventoryViewController.swift */,
 				D2A9CE6A20A4E5E5004EE81D /* InventoryView.swift */,
 			);
 			path = LibraryEscape;
@@ -226,8 +232,10 @@
 				D2A9CE6B20A4E5E5004EE81D /* InventoryView.swift in Sources */,
 				D2725F032073FEF50073B19E /* Room.swift in Sources */,
 				D2EBF0E4209B8CCE0003ED29 /* StoryView.swift in Sources */,
+				D2C1BE7420A512FF0066D6F3 /* RoomViewController.swift in Sources */,
 				D2725F072073FF670073B19E /* Event.swift in Sources */,
-				D2799E60207D8E87001127FB /* RoomViewController.swift in Sources */,
+				D2C1BE7220A504DB0066D6F3 /* InventoryViewController.swift in Sources */,
+				D2799E60207D8E87001127FB /* GameViewController.swift in Sources */,
 				D2725EDB2073FE1E0073B19E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

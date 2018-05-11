@@ -8,11 +8,11 @@
 
 import UIKit
 
+//InventoryView is our UITableVIew class. We should just modify how the view looks in this class.
+//Most of the work will happen in the controller.
 public class InventoryView : UITableView {
-    let inventory : Inventory
     
-    init(_ inventory : Inventory) {
-        self.inventory = inventory
+    init() {
         super.init(frame: CGRect.zero, style: UITableViewStyle.plain)
         setHeight(to: UIScreen.main.bounds.height / 2)
         backgroundColor = UIColor.orange
