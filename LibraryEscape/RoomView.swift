@@ -19,7 +19,6 @@ public class RoomView : UIView {
         fatalError()
     }
     
-    
     func didTapButton(button: UILabel) {
         if room.exits[.North] != nil {
             delegate?.moveToRoom(RoomDictionary[room.exits[.North]!]!)

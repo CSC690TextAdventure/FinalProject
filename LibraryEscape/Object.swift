@@ -22,13 +22,15 @@ protocol Object : class {
     
 }
 
-var globalObjects = [String : Object]()
+var ObjectDictionary : [String : Object] = [
+    "Study Room B Key" : StudyRoomBKey()
+]
 
 class StudyRoomBKey: Object {
     
     var objectName = "Shiny Object"
     
-    var LookAtEvent: Event? = StudyRoomBKeyLookEvent()
+    var LookAtEvent: Event? = StudyRoomBKeyLookAt()
     var PickUpEvent: Event? = nil
     var InteractEvent: Event? = nil
     var UseEvent: Event? = nil

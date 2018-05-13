@@ -8,15 +8,15 @@
 
 class Inventory {
     
-    var items = [Object]()
+    var items = [String]()
     
-    func addItem (_ item : Object) {
+    func addItem (_ item : String) {
         items.append(item)
     }
     
     func removeItem (_ name : String) {
         items = items.filter { item in
-            item.objectName != name
+            item != name
         }
     }
     

@@ -10,7 +10,7 @@ import UIKit
 
 class StoryView : UIView {
     
-    var options : [OptionLabel] = (1...6).map {number in OptionLabel(number)}
+    var options : [OptionLabel] = (1...6).map {_ in OptionLabel()}
     var textField : TextLabel = TextLabel()
     
     
@@ -22,6 +22,7 @@ class StoryView : UIView {
         addSubview(textField)
         options.forEach {option in addSubview(option)}
         alignLabels()
+        displayOptions()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -54,6 +55,17 @@ class StoryView : UIView {
         options[5].align(.bottom)
     }
     
+    func displayOptions (_ optionText : [String] = ["Look At", "Pick Up", "Interact", "Use", "Move To", "Thoughts"]) {
+        clearOptions()
+        for i in 0..<(min(optionText.count, 6)) {
+            options[i].text = optionText[i]
+        }
+    }
+    
+    func clearOptions() {
+        options.forEach {option in option.text = ""}
+    }
+    
     func displayText(_ text : String) {
         textField.text = text
     }
@@ -67,13 +79,18 @@ class TextLabel : UILabel {
         setHeight(to: UIScreen.main.bounds.height / 6)
         backgroundColor = UIColor.green
         layer.borderColor = UIColor.black.cgColor
-        layer.borderWidth = 3.0
-        textAlignment = .center
-        text = "Sample text!"
+        layer.borderWidth = 1.0
+        numberOfLines = 3;
+        textAlignment = .natural
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder : aDecoder)
+    }
+    
+    override func drawText(in rect: CGRect) {
+        let insets = UIEdgeInsets.init(top: 0, left: 10, bottom: 0, right: 10)
+        super.drawText(in: UIEdgeInsetsInsetRect(rect, insets))
     }
 }
 
@@ -88,15 +105,15 @@ class OptionLabel : UILabel {
     static let height = UIScreen.main.bounds.height / 6
     static let width = UIScreen.main.bounds.width / 3
     
-    init(_ id : Int) {
+    init() {
         super.init(frame: CGRect.zero)
         setHeight(to: OptionLabel.height)
         setWidth(to: OptionLabel.width)
         backgroundColor = UIColor.cyan
         layer.borderColor = UIColor.black.cgColor
-        layer.borderWidth = 3.0
+        layer.borderWidth = 1.0
+        numberOfLines = 3;
         textAlignment = .center
-        text = String(id)
     }
     
     required init?(coder aDecoder: NSCoder) {
