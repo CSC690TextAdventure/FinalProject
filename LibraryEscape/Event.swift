@@ -117,7 +117,7 @@ class StudyCommonsExitLookAt : Event {
 }
 
 class StudyCommonsExitInteract : Event {
-    var eventText = "I push on the door's only for them to be locked as well. Are you serious?"
+    var eventText = "I push on the doors only for them to be locked as well. Are you serious?"
     
     var eventCount = 0
     func runEvent(in room: Room, for object: Object) {
@@ -126,6 +126,7 @@ class StudyCommonsExitInteract : Event {
             room.thoughtText = "I'm stuck once again. Maybe there's a key somewhere in the Study Commons."
             room.exits[.South] = "Elevators Ground Floor"
             RoomDictionary["Study Commons West"]!.exits[.North] = "Study Commons Room M"
+            ObjectDictionary["Study Commons Exit"]!.LookAtEvent?.eventText = "Who designed this building? Locked doors shouldn't block someone on the inside."
             eventCount += 1
         }
     }

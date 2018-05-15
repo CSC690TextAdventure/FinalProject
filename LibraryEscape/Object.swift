@@ -27,6 +27,11 @@ var ObjectDictionary : [String : Object] = [
     "Study Room B Key" : StudyRoomBKey(),
     "Study Room Exit" : StudyRoomBDoor(),
     "Computers" : Computers(),
+    "Study Room Doors" : StudyRoomDoors(),
+    "Study Commons Exit" : StudyCommonsExit(),
+    "Storage Room Door" : StaffRoomDoor(),
+    "Help Desk" : HelpDesk()
+    
 ]
 
 class Cellphone: Object {
@@ -91,7 +96,7 @@ class StudyRoomDoors: Object {
 
 class StudyCommonsExit: Object {
     
-    var objectName = "Study Room Doors"
+    var objectName = "Study Commons Exit"
     
     var LookAtEvent: Event? = StudyCommonsExitLookAt()
     var PickUpEvent: Event? = nil
