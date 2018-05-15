@@ -70,6 +70,20 @@ class StudyCommonsWest : Room {
     var roomDescription: String = "Only a few of the lights remain on, but it's enough to make out the rows of computers lining the Study Commons."
 }
 
+class StudyCommonsEast : Room {
+    var roomName: String = "Study Commons East"
+    
+    var exits: [Direction : String] = [.West : "Study Commons West"]
+    
+    var objects: [String] = ["Study Commons Exit"]
+    
+    var inventory: Inventory?
+    
+    var thoughtText: String = "I can see the doors to the hallway leading outside from here. I should make my way over there."
+    
+    var roomDescription: String = "The entrance to the Study Commons computer lab. I've spent many nights working on assignments here."
+}
+
 class StudyRoomM : Room {
     var roomName: String = "Study Commons Room M"
     
@@ -82,21 +96,6 @@ class StudyRoomM : Room {
     var thoughtText: String = "I need to look around for anything that might unlock the exits."
     
     var roomDescription: String = "Nearly identical to the study room I woke up in. It was the only room left unlocked. Odd, the TV is still on."
-}
-
-class StudyCommonsEast : Room {
-    var roomName: String = "Study Commons East"
-    
-    var exits: [Direction : String] = [.West : "Study Commons West",
-                                       .South : "Elevators Ground Floor"]
-    
-    var objects: [String] = ["Study Commons Exit", "Staff Room Door", "Help Desk"]
-    
-    var inventory: Inventory?
-    
-    var thoughtText: String = "I can see the doors to the hallway leading outside from here. I should make my way over there."
-    
-    var roomDescription: String = "The entrance to the Study Commons computer lab. I've spent many nights working on assignments here."
 }
 
 class StaffRoom : Room {

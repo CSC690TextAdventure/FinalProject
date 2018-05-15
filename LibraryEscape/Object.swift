@@ -93,9 +93,9 @@ class StudyCommonsExit: Object {
     
     var objectName = "Study Room Doors"
     
-    var LookAtEvent: Event?// = StudyCommmonsExitLookAt()
+    var LookAtEvent: Event? = StudyCommonsExitLookAt()
     var PickUpEvent: Event? = nil
-    var InteractEvent: Event?// = StudyCommonsExitInteract()
+    var InteractEvent: Event? = StudyCommonsExitInteract()
     var UseEvent: Event? = nil
     
     let inventoryText = ""

@@ -84,6 +84,7 @@ class StudyRoomBDoorInteract : Event {
     func runEvent(in room: Room, for object: Object) {
         if eventCount == 0 {
             eventText = "I violently shake the handle, to no avail. Am I really stuck in here?"
+            room.thoughtText = "Someone should come open the door in the morning. Wait, isn't it Spring Break? Uh oh."
         }
     }
 }
@@ -94,5 +95,38 @@ class ComputersLookAt : Event {
     var eventCount = 0
     func runEvent(in room: Room, for object: Object) {
         
+    }
+}
+
+class ComputersInteract : Event {
+    var eventText = "It's a weird feeling to see all of these computers empty for once. I don't have time to sit down, however."
+    
+    var eventCount = 0
+    func runEvent(in room: Room, for object: Object) {
+        
+    }
+}
+
+class StudyCommonsExitLookAt : Event {
+    var eventText = "There's the exit! I hope it's not too cold outside."
+    
+    var eventCount = 0
+    func runEvent(in room: Room, for object: Object) {
+        
+    }
+}
+
+class StudyCommonsExitInteract : Event {
+    var eventText = "I push on the door's only for them to be locked as well. Are you serious?"
+    
+    var eventCount = 0
+    func runEvent(in room: Room, for object: Object) {
+        if eventCount == 0 {
+            eventText = "I try putting more weight on the doors. It's no use. Any more and I'll be charged for destruction of property."
+            room.thoughtText = "I'm stuck once again. Maybe there's a key somewhere in the Study Commons."
+            room.exits[.South] = "Elevators Ground Floor"
+            RoomDictionary["Study Commons West"]!.exits[.North] = "Study Commons Room M"
+            eventCount += 1
+        }
     }
 }

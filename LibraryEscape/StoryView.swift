@@ -17,7 +17,6 @@ class StoryView : UIView {
     init() {
         super.init(frame: CGRect.zero)
         setHeight(to: UIScreen.main.bounds.height / 2)
-        backgroundColor = UIColor.blue
         
         addSubview(textField)
         options.forEach {option in addSubview(option)}
@@ -92,12 +91,6 @@ class TextLabel : UILabel {
     override func drawText(in rect: CGRect) {
         let insets = UIEdgeInsets.init(top: 0, left: 10, bottom: 0, right: 10)
         super.drawText(in: UIEdgeInsetsInsetRect(rect, insets))
-    }
-}
-
-extension UILabel {
-    func setupTheme() {
-        
     }
 }
 
