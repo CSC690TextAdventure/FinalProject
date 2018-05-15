@@ -20,10 +20,10 @@ public class RoomView : UIView {
         fatalError()
     }
     
+
 //    func displayText(_ text : String) {
 //        textField2.text = text
 //    }
-    
     
     func didTapButton(button: UILabel) {
         if room.exits[.North] != nil {

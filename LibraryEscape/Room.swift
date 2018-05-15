@@ -6,7 +6,7 @@
 //  Copyright © 2018 Scott Bot Industries. All rights reserved.
 //
 
-let RoomDictionary : [String : Room] = [
+var RoomDictionary : [String : Room] = [
     "Study Commons Room B" : StudyRoomB()
 ]
 
@@ -33,15 +33,15 @@ enum Direction {
 struct StudyRoomB : Room {
     var roomName: String = "Study Commons Room B"
     
-    var exits: [Direction : String] = [.North : "StudyCommonsWest"]
+    var exits: [Direction : String] = [.North : "Study Commons West"]
     
-    var objects: [String] = ["StudyRoomBKey"]
+    var objects: [String] = ["Study Room B Key"]
     
     var inventory: Inventory?
     
-    var thoughtText: String = ""
+    var thoughtText: String = "I must have fallen asleep. I'm sure I can just walk out of here, right?"
     
-    var roomDescription: String = "Study Commons Room B, wow!"
+    var roomDescription: String = "It's the study room I fell asleep in. Everything is just how I left it, except for the lock on the door."
 }
 
 

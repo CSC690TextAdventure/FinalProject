@@ -16,18 +16,13 @@ class GameViewController: UIViewController {
     var roomViewController : RoomViewController?
     //var mapViewController : MapViewController?
     var inventoryViewController : InventoryViewController?
-    var storyView : StoryView?
-    
-    @IBOutlet weak var Text: UILabel!
+    var storyViewController : StoryViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        displayRoomView()
         displayStoryView()
-        displayInventoryView()
-        
-        currentInventory.addItem(StudyRoomBKey())
+        moveToRoom(currentRoom)
     }
     
     func displayRoomView() {
@@ -58,7 +53,10 @@ class GameViewController: UIViewController {
     }
     
     func displayStoryView() {
-        storyView = StoryView()
+        storyViewController = StoryViewController()
+        self.addChildViewController(storyViewController!)
+        storyViewController?.delegate = self
+        let storyView = storyViewController?.view
         self.view.addSubview(storyView!)
         storyView?.align(.leading)
         storyView?.align(.trailing)
@@ -78,7 +76,7 @@ class GameViewController: UIViewController {
     }
     
     func displayText (_ text: String) {
-        storyView?.displayText(text)
+        storyViewController?.displayText(text)
     }
     
 }
@@ -91,6 +89,7 @@ extension GameViewController : RoomViewControllerDelegate {
     func moveToRoom(_ room : Room) {
         currentRoom = room
         displayRoomView()
+        displayText(currentRoom.roomDescription)
     }
 }
 
@@ -105,7 +104,76 @@ extension GameViewController : InventoryViewControllerDelegate {
 
 //extension RoomViewController : MapViewDelegate {}
 
-
+extension GameViewController : StoryViewControllerDelegate {
+    
+    func optionWasTapped(_ option: String) {
+        storyViewController?.currentEvent = option
+        displayText(option)
+        switch option {
+        case "Look At", "Pick Up", "Interact":
+            let objectNames = currentRoom.objects.compactMap {ObjectDictionary[$0]?.objectName}
+            storyViewController?.displayItems(objectNames)
+        case "Use":
+            storyViewController?.displayItems(currentInventory.items)
+        case "Move To":
+            storyViewController?.displayItems(currentRoom.exits.values.map {$0})
+        case "Thoughts":
+            storyViewController?.displayText(currentRoom.thoughtText)
+            storyViewController?.currentEvent = ""
+        default:
+            break
+        }
+    }
+    
+    func eventWasTapped (_ event : String, for objectName : String) {
+        let objects = currentRoom.objects.compactMap {ObjectDictionary[$0]}
+        let object = objects.filter {$0.objectName == objectName}.first
+        var tappedEvent : Event?
+        switch event {
+        case "Look At":
+            tappedEvent = object?.LookAtEvent
+        case "Pick Up":
+            tappedEvent = object?.PickUpEvent
+        case "Interact":
+            tappedEvent = object?.InteractEvent
+        default:
+            return
+        }
+        displayText(tappedEvent?.eventText ?? "I can't do that...")
+        tappedEvent?.runEvent(in: currentRoom, for: object!)
+        storyViewController?.currentEvent = ""
+        storyViewController?.displayOptions()
+    }
+    
+    func useWasTapped(for objectName: String) {
+        let objects = currentRoom.inventory?.items.compactMap {ObjectDictionary[$0]}
+        let object = objects?.filter {$0.objectName == objectName}.first
+        var tappedEvent = object?.UseEvent
+        displayText(tappedEvent?.eventText ?? "I can't use that...")
+        tappedEvent?.runEvent(in: currentRoom, for: object!)
+        storyViewController?.currentEvent = ""
+        storyViewController?.displayOptions()
+    }
+    
+    func moveToWasTapped(for roomName: String) {
+        let exits = currentRoom.exits.values.compactMap {$0}
+        let exit = exits.filter {roomName == $0}.first
+        if let exit = exit, let room = RoomDictionary[exit] {
+            moveToRoom(room)
+        } else {
+            displayText("I can't move there...")
+        }
+        storyViewController?.currentEvent = ""
+        storyViewController?.displayOptions()
+    }
+    
+    func thoughtsWasTapped() {
+        displayText(currentRoom.thoughtText)
+        storyViewController?.currentEvent = ""
+        storyViewController?.displayOptions()
+    }
+    
+}
 
 extension UIView {
     func setHeight(to height: CGFloat) {

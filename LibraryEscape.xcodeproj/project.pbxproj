@@ -22,6 +22,7 @@
 		D2C1BE7220A504DB0066D6F3 /* InventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C1BE7120A504DB0066D6F3 /* InventoryViewController.swift */; };
 		D2C1BE7420A512FF0066D6F3 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C1BE7320A512FF0066D6F3 /* RoomViewController.swift */; };
 		D2EBF0E4209B8CCE0003ED29 /* StoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EBF0E3209B8CCE0003ED29 /* StoryView.swift */; };
+		D2F99E5320A5F469001E35F9 /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F99E5220A5F469001E35F9 /* StoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		D2C1BE7120A504DB0066D6F3 /* InventoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryViewController.swift; sourceTree = "<group>"; };
 		D2C1BE7320A512FF0066D6F3 /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
 		D2EBF0E3209B8CCE0003ED29 /* StoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryView.swift; sourceTree = "<group>"; };
+		D2F99E5220A5F469001E35F9 /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,11 +103,12 @@
 				D2725EE92073FE1E0073B19E /* LaunchScreen.storyboard */,
 				D2725EE72073FE1E0073B19E /* Assets.xcassets */,
 				D2799E5F207D8E87001127FB /* GameViewController.swift */,
-				D2EBF0E3209B8CCE0003ED29 /* StoryView.swift */,
 				D2725F022073FEF50073B19E /* Room.swift */,
 				D2725F042073FF390073B19E /* Object.swift */,
 				D2725F062073FF670073B19E /* Event.swift */,
 				D2725F082073FF9C0073B19E /* Inventory.swift */,
+				D2F99E5220A5F469001E35F9 /* StoryViewController.swift */,
+				D2EBF0E3209B8CCE0003ED29 /* StoryView.swift */,
 				D2C1BE7320A512FF0066D6F3 /* RoomViewController.swift */,
 				D24669BD20A27C9800896C52 /* RoomView.swift */,
 				D2C1BE7120A504DB0066D6F3 /* InventoryViewController.swift */,
@@ -226,6 +229,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2F99E5320A5F469001E35F9 /* StoryViewController.swift in Sources */,
 				D2725F052073FF390073B19E /* Object.swift in Sources */,
 				D24669BE20A27C9800896C52 /* RoomView.swift in Sources */,
 				D2725F092073FF9C0073B19E /* Inventory.swift in Sources */,
