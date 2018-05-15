@@ -10,9 +10,6 @@ public class RoomView : UIView {
         self.room = room
         super.init(frame: CGRect.zero)
         setHeight(to: UIScreen.main.bounds.height / 2)
-        backgroundColor = UIColor.red
-        layer.borderColor = UIColor.white.cgColor
-        layer.borderWidth = 3.0
         let textField : RoomNameLabel = RoomNameLabel(room.roomName)//
         addSubview(textField)    }
     
@@ -38,9 +35,10 @@ class RoomNameLabel : UILabel {
         super.init(frame: CGRect.zero)
         setHeight(to: UIScreen.main.bounds.height / 2)
         setWidth(to: UIScreen.main.bounds.width)
-        backgroundColor = UIColor.yellow
-        layer.borderColor = UIColor.black.cgColor
-        layer.borderWidth = 3.0
+        backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        textColor = #colorLiteral(red: 0.1618045275, green: 0.9652485427, blue: 0.0007898631764, alpha: 1)
+        layer.borderColor = #colorLiteral(red: 0.1618045275, green: 0.9652485427, blue: 0.0007898631764, alpha: 1)
+        layer.borderWidth = 1.0
         textAlignment = .center
         self.text = text
     }

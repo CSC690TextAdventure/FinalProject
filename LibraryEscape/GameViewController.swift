@@ -22,6 +22,7 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         
         displayStoryView()
+        currentInventory.addItem("Cellphone")
         moveToRoom(currentRoom)
     }
     

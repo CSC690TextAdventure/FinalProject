@@ -23,8 +23,23 @@ protocol Object : class {
 }
 
 var ObjectDictionary : [String : Object] = [
-    "Study Room B Key" : StudyRoomBKey()
+    "Cellphone" : Cellphone(),
+    "Study Room B Key" : StudyRoomBKey(),
+    "Study Room Exit" : StudyRoomBDoor(),
+    "Computers" : Computers(),
 ]
+
+class Cellphone: Object {
+    
+    var objectName = "Cellphone"
+    
+    var LookAtEvent: Event? = nil
+    var PickUpEvent: Event? = nil
+    var InteractEvent: Event? = nil
+    var UseEvent: Event? = CellphoneUse()
+    
+    let inventoryText = "My cellphone. It's out of juice. Could serve as a mirror in a pinch."
+}
 
 class StudyRoomBKey: Object {
     
@@ -36,6 +51,78 @@ class StudyRoomBKey: Object {
     var UseEvent: Event? = nil
     
     let inventoryText = "A key I found in the Study Room I woke up in. Why was it there?"
+}
+
+class StudyRoomBDoor: Object {
+    
+    var objectName = "Study Room Exit"
+    
+    var LookAtEvent: Event? = StudyRoomBDoorLookAt()
+    var PickUpEvent: Event? = nil
+    var InteractEvent: Event? = StudyRoomBDoorInteract()
+    var UseEvent: Event? = nil
+    
+    let inventoryText = ""
+}
+
+class Computers: Object {
+    
+    var objectName = "Computers"
+    
+    var LookAtEvent: Event? = ComputersLookAt()
+    var PickUpEvent: Event? = nil
+    var InteractEvent: Event? = nil
+    var UseEvent: Event? = nil
+    
+    let inventoryText = ""
+}
+
+class StudyRoomDoors: Object {
+    
+    var objectName = "Study Room Doors"
+    
+    var LookAtEvent: Event? = nil
+    var PickUpEvent: Event? = nil
+    var InteractEvent: Event? = nil
+    var UseEvent: Event? = nil
+    
+    let inventoryText = ""
+}
+
+class StudyCommonsExit: Object {
+    
+    var objectName = "Study Room Doors"
+    
+    var LookAtEvent: Event?// = StudyCommmonsExitLookAt()
+    var PickUpEvent: Event? = nil
+    var InteractEvent: Event?// = StudyCommonsExitInteract()
+    var UseEvent: Event? = nil
+    
+    let inventoryText = ""
+}
+
+class StaffRoomDoor: Object {
+    
+    var objectName = "Storage Room Door"
+    
+    var LookAtEvent: Event? = nil
+    var PickUpEvent: Event? = nil
+    var InteractEvent: Event? = nil
+    var UseEvent: Event? = nil
+    
+    let inventoryText = ""
+}
+
+class HelpDesk: Object {
+    
+    var objectName = "Help Desk"
+    
+    var LookAtEvent: Event? = nil
+    var PickUpEvent: Event? = nil
+    var InteractEvent: Event? = nil
+    var UseEvent: Event? = nil
+    
+    let inventoryText = ""
 }
 
 

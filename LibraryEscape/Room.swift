@@ -35,10 +35,10 @@ enum Direction {
 var RoomDictionary : [String : Room] = [
     "Study Commons Room B" : StudyRoomB(),
     "Study Commons West" : StudyCommonsWest(),
-    "Study Commons Room M" : StudyRoomM()//,
-    //"Study Commons East" : StudyCommonsEast(),
-    //"Staff Room" : StaffRoom(),
-    //"Elevators Ground Floor" : ElevatorsGroundFloor()
+    "Study Commons Room M" : StudyRoomM(),
+    "Study Commons East" : StudyCommonsEast(),
+    "Staff Storage Room" : StaffRoom(),
+    "Elevators Ground Floor" : ElevatorsGroundFloor()
 ]
 
 class StudyRoomB : Room {
@@ -46,7 +46,7 @@ class StudyRoomB : Room {
     
     var exits: [Direction : String] = [:]
     
-    var objects: [String] = ["Study Room B Key"]
+    var objects: [String] = ["Study Room B Key", "Study Room Exit"]
     
     var inventory: Inventory?
     
@@ -59,7 +59,6 @@ class StudyCommonsWest : Room {
     var roomName: String = "Study Commons West"
     
     var exits: [Direction : String] = [.South : "Study Commons Room B",
-                                       .North : "Study Commons Room M",
                                        .East : "Study Commons East"]
     
     var objects: [String] = ["Computers", "Study Room Doors"]
@@ -80,9 +79,52 @@ class StudyRoomM : Room {
     
     var inventory: Inventory?
     
-    var thoughtText: String = "I need to look around for anything that might "
+    var thoughtText: String = "I need to look around for anything that might unlock the exits."
     
-    var roomDescription: String = "Nearly identical to the study room I woke up in. It was only room left unlocked. Odd, the TV is still on."
+    var roomDescription: String = "Nearly identical to the study room I woke up in. It was the only room left unlocked. Odd, the TV is still on."
+}
+
+class StudyCommonsEast : Room {
+    var roomName: String = "Study Commons East"
+    
+    var exits: [Direction : String] = [.West : "Study Commons West",
+                                       .South : "Elevators Ground Floor"]
+    
+    var objects: [String] = ["Study Commons Exit", "Staff Room Door", "Help Desk"]
+    
+    var inventory: Inventory?
+    
+    var thoughtText: String = "I can see the doors to the hallway leading outside from here. I should make my way over there."
+    
+    var roomDescription: String = "The entrance to the Study Commons computer lab. I've spent many nights working on assignments here."
+}
+
+class StaffRoom : Room {
+    var roomName: String = "Staff Storage Room"
+    
+    var exits: [Direction : String] = [.West : "Study Commons East"]
+    
+    var objects: [String] = ["Electronic Equipment", "Supplies", "Staff Paperwork"]
+    
+    var inventory: Inventory?
+    
+    var thoughtText: String = "If anyone would have a key to the library, it would be the staff. I've never seen anyone here except students, but it's worth a look."
+    
+    var roomDescription: String = "A storage space for printing supplies and electronic equipment used in the library. It's messy."
+}
+
+class ElevatorsGroundFloor : Room {
+    var roomName: String = "Ground Floor Elevators"
+    
+    var exits: [Direction : String] = [.North : "Study Commons East"]
+    
+    var objects: [String] = ["Restroom Entrances", "Elevator Call Button"]
+    
+    var inventory: Inventory?
+    
+    var thoughtText: String = "Even if the Study Commons exit is locked, I can just take an elevator to the first floor entrance."
+    
+    var roomDescription: String = "The elevators and restrooms for the Ground Floor. The library has six floors."
 }
 
 
