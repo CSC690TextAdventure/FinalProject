@@ -10,7 +10,7 @@ import UIKit
 
 class GameViewController: UIViewController {
     
-    var currentRoom : Room = StudyRoomB()
+    var currentRoom : Room = RoomDictionary["Study Commons Room B"]!
     let currentInventory = Inventory()
     
     var roomViewController : RoomViewController?
@@ -88,6 +88,7 @@ extension GameViewController : RoomViewControllerDelegate {
     
     func moveToRoom(_ room : Room) {
         currentRoom = room
+        currentRoom.inventory = currentInventory
         displayRoomView()
         displayText(currentRoom.roomDescription)
     }
@@ -102,7 +103,7 @@ extension GameViewController : InventoryViewControllerDelegate {
     }
 }
 
-//extension RoomViewController : MapViewDelegate {}
+//extension GameViewController : MapViewDelegate {}
 
 extension GameViewController : StoryViewControllerDelegate {
     
@@ -114,7 +115,8 @@ extension GameViewController : StoryViewControllerDelegate {
             let objectNames = currentRoom.objects.compactMap {ObjectDictionary[$0]?.objectName}
             storyViewController?.displayItems(objectNames)
         case "Use":
-            storyViewController?.displayItems(currentInventory.items)
+            let itemNames = currentInventory.items.compactMap {ObjectDictionary[$0]?.objectName}
+            storyViewController?.displayItems(itemNames)
         case "Move To":
             storyViewController?.displayItems(currentRoom.exits.values.map {$0})
         case "Thoughts":
@@ -146,8 +148,8 @@ extension GameViewController : StoryViewControllerDelegate {
     }
     
     func useWasTapped(for objectName: String) {
-        let objects = currentRoom.inventory?.items.compactMap {ObjectDictionary[$0]}
-        let object = objects?.filter {$0.objectName == objectName}.first
+        let objects = currentInventory.items.compactMap {ObjectDictionary[$0]}
+        let object = objects.filter {$0.objectName == objectName}.first
         var tappedEvent = object?.UseEvent
         displayText(tappedEvent?.eventText ?? "I can't use that...")
         tappedEvent?.runEvent(in: currentRoom, for: object!)
