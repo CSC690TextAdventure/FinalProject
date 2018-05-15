@@ -17,7 +17,6 @@ class StoryView : UIView {
     init() {
         super.init(frame: CGRect.zero)
         setHeight(to: UIScreen.main.bounds.height / 2)
-        backgroundColor = UIColor.blue
         
         addSubview(textField)
         options.forEach {option in addSubview(option)}
@@ -77,8 +76,9 @@ class TextLabel : UILabel {
     init() {
         super.init(frame: CGRect.zero)
         setHeight(to: UIScreen.main.bounds.height / 6)
-        backgroundColor = UIColor.green
-        layer.borderColor = UIColor.black.cgColor
+        backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        textColor = #colorLiteral(red: 0.1618045275, green: 0.9652485427, blue: 0.0007898631764, alpha: 1)
+        layer.borderColor = #colorLiteral(red: 0.1618045275, green: 0.9652485427, blue: 0.0007898631764, alpha: 1)
         layer.borderWidth = 1.0
         numberOfLines = 3;
         textAlignment = .natural
@@ -94,12 +94,6 @@ class TextLabel : UILabel {
     }
 }
 
-extension UILabel {
-    func setupTheme() {
-        
-    }
-}
-
 class OptionLabel : UILabel {
     
     static let height = UIScreen.main.bounds.height / 6
@@ -109,8 +103,9 @@ class OptionLabel : UILabel {
         super.init(frame: CGRect.zero)
         setHeight(to: OptionLabel.height)
         setWidth(to: OptionLabel.width)
-        backgroundColor = UIColor.cyan
-        layer.borderColor = UIColor.black.cgColor
+        backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        textColor = #colorLiteral(red: 0.1618045275, green: 0.9652485427, blue: 0.0007898631764, alpha: 1)
+        layer.borderColor = #colorLiteral(red: 0.1618045275, green: 0.9652485427, blue: 0.0007898631764, alpha: 1)
         layer.borderWidth = 1.0
         numberOfLines = 3;
         textAlignment = .center

@@ -23,6 +23,7 @@
 		D2C1BE7420A512FF0066D6F3 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C1BE7320A512FF0066D6F3 /* RoomViewController.swift */; };
 		D2EBF0E4209B8CCE0003ED29 /* StoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EBF0E3209B8CCE0003ED29 /* StoryView.swift */; };
 		D2F99E5320A5F469001E35F9 /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F99E5220A5F469001E35F9 /* StoryViewController.swift */; };
+		D2F99E5520AB76A6001E35F9 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F99E5420AB76A6001E35F9 /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		D2C1BE7320A512FF0066D6F3 /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
 		D2EBF0E3209B8CCE0003ED29 /* StoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryView.swift; sourceTree = "<group>"; };
 		D2F99E5220A5F469001E35F9 /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
+		D2F99E5420AB76A6001E35F9 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				D24669BD20A27C9800896C52 /* RoomView.swift */,
 				D2C1BE7120A504DB0066D6F3 /* InventoryViewController.swift */,
 				D2A9CE6A20A4E5E5004EE81D /* InventoryView.swift */,
+				D2F99E5420AB76A6001E35F9 /* MapView.swift */,
 			);
 			path = LibraryEscape;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				D2725F052073FF390073B19E /* Object.swift in Sources */,
 				D24669BE20A27C9800896C52 /* RoomView.swift in Sources */,
 				D2725F092073FF9C0073B19E /* Inventory.swift in Sources */,
+				D2F99E5520AB76A6001E35F9 /* MapView.swift in Sources */,
 				D2A9CE6B20A4E5E5004EE81D /* InventoryView.swift in Sources */,
 				D2725F032073FEF50073B19E /* Room.swift in Sources */,
 				D2EBF0E4209B8CCE0003ED29 /* StoryView.swift in Sources */,

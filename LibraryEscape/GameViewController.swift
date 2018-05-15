@@ -10,20 +10,40 @@ import UIKit
 
 class GameViewController: UIViewController {
     
-    var currentRoom : Room = StudyRoomB()
+    var currentRoom : Room = RoomDictionary["Study Commons Room B"]!
     let currentInventory = Inventory()
     
     var roomViewController : RoomViewController?
-    //var mapViewController : MapViewController?
+    var mapView : MapView?
     var inventoryViewController : InventoryViewController?
     var storyViewController : StoryViewController?
+    
+    var roomViewLabel : ViewLabel = ViewLabel("Room")
+    var mapViewLabel: ViewLabel = ViewLabel("Map")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         displayStoryView()
+        currentInventory.addItem("Cellphone")
         moveToRoom(currentRoom)
+        
+        let roomViewTap = UITapGestureRecognizer(target: self, action: #selector(self.roomViewTapped))
+        
+        let mapViewTap = UITapGestureRecognizer(target: self, action: #selector(self.mapViewTapped))
+        
+        roomViewLabel.isUserInteractionEnabled = true
+        mapViewLabel.isUserInteractionEnabled = true
+        
+        roomViewLabel.addGestureRecognizer(roomViewTap)
+        mapViewLabel.addGestureRecognizer(mapViewTap)
+        
+        self.view.addSubview(roomViewLabel)
+        self.view.addSubview(mapViewLabel)
+        
     }
+    
+    
     
     func displayRoomView() {
         removeCurrentView()
@@ -33,13 +53,15 @@ class GameViewController: UIViewController {
         let roomView = roomViewController?.view
         self.view.addSubview(roomView!)
         alignTopView(roomView!)
+        displayViewLabels()
     }
     
     func displayMapView() {
-        //removeCurrentView()
-        //mapView = MapView()
-        //mapView?.delegate = self
-        //alignTopView()
+        removeCurrentView()
+        mapView = MapView()
+        self.view.addSubview(mapView!)
+        alignTopView(mapView!)
+        displayViewLabels()
     }
     
     func displayInventoryView() {
@@ -50,6 +72,7 @@ class GameViewController: UIViewController {
         let inventoryTableView = inventoryViewController?.tableView
         self.view.addSubview(inventoryTableView!)
         alignTopView(inventoryTableView!)
+        displayViewLabels()
     }
     
     func displayStoryView() {
@@ -65,7 +88,7 @@ class GameViewController: UIViewController {
     
     func removeCurrentView() {
         roomViewController?.removeFromParentViewController()
-        //mapView?.removeFromSuperView()
+        mapView?.removeFromSuperview()
         inventoryViewController?.removeFromParentViewController()
     }
     
@@ -79,6 +102,54 @@ class GameViewController: UIViewController {
         storyViewController?.displayText(text)
     }
     
+    @objc func roomViewTapped() {
+        displayRoomView()
+        displayViewLabels()
+    }
+    
+    @objc func mapViewTapped() {
+        displayMapView()
+        displayViewLabels()
+    }
+    
+    func displayViewLabels() {
+        roomViewLabel.removeFromSuperview()
+        mapViewLabel.removeFromSuperview()
+        self.view.addSubview(roomViewLabel)
+        self.view.addSubview(mapViewLabel)
+        alignViewLabels()
+    }
+    
+    func alignViewLabels() {
+        roomViewLabel.align(.bottom, constant: -(UIScreen.main.bounds.height / 2 + 5))
+        mapViewLabel.align(.bottom, constant: -(UIScreen.main.bounds.height / 2 + 5))
+        roomViewLabel.align(.left, constant: 5)
+        mapViewLabel.align(.right, constant: -5)
+    }
+    
+}
+
+class ViewLabel : UILabel {
+    
+    static let height = UIScreen.main.bounds.height / 10
+    static let width = UIScreen.main.bounds.width / 10
+    
+    init(_ name : String) {
+        super.init(frame: CGRect.zero)
+        setHeight(to: ViewLabel.height)
+        setWidth(to: ViewLabel.height)
+        backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        textColor = #colorLiteral(red: 0.1618045275, green: 0.9652485427, blue: 0.0007898631764, alpha: 1)
+        layer.borderColor = #colorLiteral(red: 0.1618045275, green: 0.9652485427, blue: 0.0007898631764, alpha: 1)
+        layer.borderWidth = 1.0
+        numberOfLines = 1;
+        textAlignment = .center
+        text = name
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder : aDecoder)
+    }
 }
 
 extension GameViewController : RoomViewControllerDelegate {
@@ -88,6 +159,7 @@ extension GameViewController : RoomViewControllerDelegate {
     
     func moveToRoom(_ room : Room) {
         currentRoom = room
+        currentRoom.inventory = currentInventory
         displayRoomView()
         displayText(currentRoom.roomDescription)
     }
@@ -102,7 +174,7 @@ extension GameViewController : InventoryViewControllerDelegate {
     }
 }
 
-//extension RoomViewController : MapViewDelegate {}
+//extension GameViewController : MapViewDelegate {}
 
 extension GameViewController : StoryViewControllerDelegate {
     
@@ -114,7 +186,8 @@ extension GameViewController : StoryViewControllerDelegate {
             let objectNames = currentRoom.objects.compactMap {ObjectDictionary[$0]?.objectName}
             storyViewController?.displayItems(objectNames)
         case "Use":
-            storyViewController?.displayItems(currentInventory.items)
+            let itemNames = currentInventory.items.compactMap {ObjectDictionary[$0]?.objectName}
+            storyViewController?.displayItems(itemNames)
         case "Move To":
             storyViewController?.displayItems(currentRoom.exits.values.map {$0})
         case "Thoughts":
@@ -146,8 +219,8 @@ extension GameViewController : StoryViewControllerDelegate {
     }
     
     func useWasTapped(for objectName: String) {
-        let objects = currentRoom.inventory?.items.compactMap {ObjectDictionary[$0]}
-        let object = objects?.filter {$0.objectName == objectName}.first
+        let objects = currentInventory.items.compactMap {ObjectDictionary[$0]}
+        let object = objects.filter {$0.objectName == objectName}.first
         var tappedEvent = object?.UseEvent
         displayText(tappedEvent?.eventText ?? "I can't use that...")
         tappedEvent?.runEvent(in: currentRoom, for: object!)
