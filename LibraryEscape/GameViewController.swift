@@ -216,6 +216,7 @@ extension GameViewController : StoryViewControllerDelegate {
         tappedEvent?.runEvent(in: currentRoom, for: object!)
         storyViewController?.currentEvent = ""
         storyViewController?.displayOptions()
+        roomViewController?.updateButtons()
     }
     
     func useWasTapped(for objectName: String) {
@@ -226,6 +227,7 @@ extension GameViewController : StoryViewControllerDelegate {
         tappedEvent?.runEvent(in: currentRoom, for: object!)
         storyViewController?.currentEvent = ""
         storyViewController?.displayOptions()
+        roomViewController?.updateButtons()
     }
     
     func moveToWasTapped(for roomName: String) {
@@ -238,6 +240,7 @@ extension GameViewController : StoryViewControllerDelegate {
         }
         storyViewController?.currentEvent = ""
         storyViewController?.displayOptions()
+        roomViewController?.updateButtons()
     }
     
     func thoughtsWasTapped() {
