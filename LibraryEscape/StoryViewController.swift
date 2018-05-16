@@ -1,5 +1,9 @@
 import UIKit
 
+
+//Story View Controller maintains the Story View and passes touch information to its delegate,
+// in this case GameViewController. 6 UILabels make up the options that the player can touch.
+// Each label has its own UITapGestureRecognizer and action function.
 public class StoryViewController : UIViewController {
     
     var delegate : StoryViewControllerDelegate?

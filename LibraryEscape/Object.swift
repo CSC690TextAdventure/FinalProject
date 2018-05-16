@@ -1,10 +1,6 @@
-//
-//  Object.swift
-//  LibraryEscape
-//
-//  Created by Scott Penn on 4/3/18.
-//  Copyright © 2018 Scott Bot Industries. All rights reserved.
-//
+// The Object protocol describes the functionality of an Object.
+// Each object holds its name and any event associated with it.
+// A global dictionary is used to ensure that only one object exists at a time.
 
 protocol Object : class {
     
@@ -30,8 +26,9 @@ var ObjectDictionary : [String : Object] = [
     "Study Room Doors" : StudyRoomDoors(),
     "Study Commons Exit" : StudyCommonsExit(),
     "Storage Room Door" : StaffRoomDoor(),
-    "Help Desk" : HelpDesk()
-    
+    "Help Desk" : HelpDesk(),
+    "Elevator Call Button": ElevatorCallButton(),
+    "Elevator" : Elevator()
 ]
 
 class Cellphone: Object {
@@ -86,7 +83,7 @@ class StudyRoomDoors: Object {
     
     var objectName = "Study Room Doors"
     
-    var LookAtEvent: Event? = nil
+    var LookAtEvent: Event? = StudyRoomDoorsLookAt()
     var PickUpEvent: Event? = nil
     var InteractEvent: Event? = nil
     var UseEvent: Event? = nil
@@ -130,4 +127,26 @@ class HelpDesk: Object {
     let inventoryText = ""
 }
 
+class ElevatorCallButton: Object {
+    
+    var objectName = "Elevator Call Button"
+    
+    var LookAtEvent: Event? = ElevatorCallButtonLookAt()
+    var PickUpEvent: Event? = nil
+    var InteractEvent: Event? = ElevatorCallButtonInteract()
+    var UseEvent: Event? = nil
+    
+    let inventoryText = ""
+}
 
+class Elevator: Object {
+    
+    var objectName = ""
+    
+    var LookAtEvent: Event? = nil
+    var PickUpEvent: Event? = nil
+    var InteractEvent: Event? = nil
+    var UseEvent: Event? = nil
+    
+    let inventoryText = ""
+}
