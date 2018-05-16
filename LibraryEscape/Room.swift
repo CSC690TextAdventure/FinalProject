@@ -1,10 +1,6 @@
-//
-//  Room.swift
-//  LibraryEscape
-//
-//  Created by Scott Penn on 4/3/18.
-//  Copyright © 2018 Scott Bot Industries. All rights reserved.
-//
+// The Room protocol describes the functionality of a Room.
+// Each room keeps track of its objects, its exits, and other identifying information
+// A global dictionary is used to ensure that only one room exists at a time.
 
 protocol Room : class {
     var roomName : String {get}
@@ -18,7 +14,7 @@ protocol Room : class {
     var thoughtText : String {get set}
     
     var roomDescription : String {get set}
-
+    
     func removeObject(_ name : String)
 }
 
@@ -38,7 +34,8 @@ var RoomDictionary : [String : Room] = [
     "Study Commons Room M" : StudyRoomM(),
     "Study Commons East" : StudyCommonsEast(),
     "Staff Storage Room" : StaffRoom(),
-    "Elevators Ground Floor" : ElevatorsGroundFloor()
+    "Elevators Ground Floor" : ElevatorsGroundFloor(),
+    "Final Room" : FinalRoom()
 ]
 
 class StudyRoomB : Room {
@@ -117,7 +114,7 @@ class ElevatorsGroundFloor : Room {
     
     var exits: [Direction : String] = [.North : "Study Commons East"]
     
-    var objects: [String] = ["Restroom Entrances", "Elevator Call Button"]
+    var objects: [String] = ["Restroom Entrances", "Elevator Call Button", "Elevator"]
     
     var inventory: Inventory?
     
@@ -126,6 +123,17 @@ class ElevatorsGroundFloor : Room {
     var roomDescription: String = "The elevators and restrooms for the Ground Floor. The library has six floors."
 }
 
-
-
+class FinalRoom : Room {
+    var roomName: String = "Congratulations!"
+    
+    var exits: [Direction : String] = [:]
+    
+    var objects: [String] = []
+    
+    var inventory: Inventory?
+    
+    var thoughtText: String = "Credits to Scott, Kento, Matt and Carlos"
+    
+    var roomDescription: String = "Thank you for playing! You escaped!! To be continued..."
+}
 

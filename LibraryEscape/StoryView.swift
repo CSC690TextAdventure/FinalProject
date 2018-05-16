@@ -1,13 +1,8 @@
-//
-//  StoryView.swift
-//  LibraryGame
-//
-//  Created by Scott Penn on 5/3/18.
-//  Copyright © 2018 Scott Bot Industries. All rights reserved.
-//
-
 import UIKit
 
+// StoryView contains the display information for the story view.
+// It defines the theme color scheme for the rest of the game.
+// It is responsible for aligning its view and view elements to fit the superview.
 class StoryView : UIView {
     
     var options : [OptionLabel] = (1...6).map {_ in OptionLabel()}
@@ -36,13 +31,13 @@ class StoryView : UIView {
         options[0].align(.leading)
         options[0].connectTop(to: textField)
         options[0].connectRight(to: options[1])
-    
+        
         options[1].connectTop(to: textField)
         options[1].connectRight(to: options[2])
-
+        
         options[2].connectTop(to: textField)
         options[2].align(.trailing)
-
+        
         options[3].align(.leading)
         options[3].connectRight(to: options[4])
         options[3].align(.bottom)
@@ -68,7 +63,7 @@ class StoryView : UIView {
     func displayText(_ text : String) {
         textField.text = text
     }
-
+    
     
 }
 

@@ -1,35 +1,35 @@
-//
-//  GameViewController.swift
-//  LibraryEscape
-//
-//  Created by Scott Penn on 4/10/18.
-//  Copyright © 2018 Scott Bot Industries. All rights reserved.
-//
-
 import UIKit
 
+
+// The GameViewController is the app's main class. It manages
+// all of the view controllers and subviews on the game screen.
+// The top half consists of either a Room View or a Map View.
+// The bottom half always displays the Story View
 class GameViewController: UIViewController {
     
     var currentRoom : Room = RoomDictionary["Study Commons Room B"]!
     let currentInventory = Inventory()
     
+    // All of the views and view controllers
     var roomViewController : RoomViewController?
     var mapView : MapView?
     var inventoryViewController : InventoryViewController?
     var storyViewController : StoryViewController?
     
+    // The two buttons that switch between top views.
     var roomViewLabel : ViewLabel = ViewLabel("Room")
     var mapViewLabel: ViewLabel = ViewLabel("Map")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //We display the story view and the room view by moving to the first Room.
         displayStoryView()
         currentInventory.addItem("Cellphone")
         moveToRoom(currentRoom)
         
+        //Setup for the two view buttons
         let roomViewTap = UITapGestureRecognizer(target: self, action: #selector(self.roomViewTapped))
-        
         let mapViewTap = UITapGestureRecognizer(target: self, action: #selector(self.mapViewTapped))
         
         roomViewLabel.isUserInteractionEnabled = true
@@ -38,13 +38,15 @@ class GameViewController: UIViewController {
         roomViewLabel.addGestureRecognizer(roomViewTap)
         mapViewLabel.addGestureRecognizer(mapViewTap)
         
+        //adding the buttons to the view.
         self.view.addSubview(roomViewLabel)
         self.view.addSubview(mapViewLabel)
         
     }
     
-    
-    
+    // When we display a view, we first remove the current top view.
+    // We then add the desired view controller and subview to the main view.
+    // We align it to the top of the main view, and finally re-display the buttons.
     func displayRoomView() {
         removeCurrentView()
         roomViewController = RoomViewController(currentRoom)
@@ -53,8 +55,10 @@ class GameViewController: UIViewController {
         let roomView = roomViewController?.view
         self.view.addSubview(roomView!)
         alignTopView(roomView!)
+        displayText(currentRoom.roomDescription)
         displayViewLabels()
     }
+    
     
     func displayMapView() {
         removeCurrentView()
@@ -64,6 +68,7 @@ class GameViewController: UIViewController {
         displayViewLabels()
     }
     
+    //Currently unused, but working.
     func displayInventoryView() {
         removeCurrentView()
         inventoryViewController = InventoryViewController(currentInventory)
@@ -75,6 +80,7 @@ class GameViewController: UIViewController {
         displayViewLabels()
     }
     
+    //The story view is only displayed once, as it never gets swapped out.
     func displayStoryView() {
         storyViewController = StoryViewController()
         self.addChildViewController(storyViewController!)
@@ -86,25 +92,31 @@ class GameViewController: UIViewController {
         storyView?.align(.bottom)
     }
     
+    // Only removes the top views. Optional chaining allows us to call all three methods safely.
     func removeCurrentView() {
         roomViewController?.removeFromParentViewController()
         mapView?.removeFromSuperview()
         inventoryViewController?.removeFromParentViewController()
     }
     
+    //See extensions at the bottom of this class file.
     func alignTopView(_ view : UIView) {
         view.align(.top)
         view.align(.leading)
         view.align(.trailing)
     }
     
+    //This will display text to the story view's text field.
     func displayText (_ text: String) {
         storyViewController?.displayText(text)
     }
     
+    //Functions specific to the view buttons in the top view, which are always visible.
     @objc func roomViewTapped() {
         displayRoomView()
         displayViewLabels()
+        storyViewController?.currentEvent = ""
+        storyViewController?.displayOptions()
     }
     
     @objc func mapViewTapped() {
@@ -161,7 +173,6 @@ extension GameViewController : RoomViewControllerDelegate {
         currentRoom = room
         currentRoom.inventory = currentInventory
         displayRoomView()
-        displayText(currentRoom.roomDescription)
     }
 }
 
@@ -174,10 +185,13 @@ extension GameViewController : InventoryViewControllerDelegate {
     }
 }
 
-//extension GameViewController : MapViewDelegate {}
-
+// GameViewController is also a StoryViewControllerDelegate,
+// and responds to the StoryViewController's request to change the display.
+// The StoryViewController is responsible for passing the event information to the delegate.
 extension GameViewController : StoryViewControllerDelegate {
     
+    //Switches over the text that was tapped on.
+    //If it is one of six actions, an event flag is raised in StoryViewController.
     func optionWasTapped(_ option: String) {
         storyViewController?.currentEvent = option
         displayText(option)
@@ -198,6 +212,7 @@ extension GameViewController : StoryViewControllerDelegate {
         }
     }
     
+    //This will be called if the relevant event flag is raised.
     func eventWasTapped (_ event : String, for objectName : String) {
         let objects = currentRoom.objects.compactMap {ObjectDictionary[$0]}
         let object = objects.filter {$0.objectName == objectName}.first
@@ -219,6 +234,7 @@ extension GameViewController : StoryViewControllerDelegate {
         roomViewController?.updateButtons()
     }
     
+    //This will be called if the relevant event flag is raised.
     func useWasTapped(for objectName: String) {
         let objects = currentInventory.items.compactMap {ObjectDictionary[$0]}
         let object = objects.filter {$0.objectName == objectName}.first
@@ -230,6 +246,7 @@ extension GameViewController : StoryViewControllerDelegate {
         roomViewController?.updateButtons()
     }
     
+    //This will be called if the relevant event flag is raised.
     func moveToWasTapped(for roomName: String) {
         let exits = currentRoom.exits.values.compactMap {$0}
         let exit = exits.filter {roomName == $0}.first
@@ -243,6 +260,7 @@ extension GameViewController : StoryViewControllerDelegate {
         roomViewController?.updateButtons()
     }
     
+    //This will be called if the relevant event flag is raised.
     func thoughtsWasTapped() {
         displayText(currentRoom.thoughtText)
         storyViewController?.currentEvent = ""
@@ -251,6 +269,7 @@ extension GameViewController : StoryViewControllerDelegate {
     
 }
 
+//These extensions borrowed and modified from class lectures. Thank you, they were extremely helpful.
 extension UIView {
     func setHeight(to height: CGFloat) {
         NSLayoutConstraint(item: self, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: height).isActive = true

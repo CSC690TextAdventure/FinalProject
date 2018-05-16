@@ -1,10 +1,7 @@
-//
-//  Inventory.swift
-//  LibraryEscape
-//
-//  Created by Scott Penn on 4/3/18.
-//  Copyright © 2018 Scott Bot Industries. All rights reserved.
-//
+//Finally a simple class!
+//The inventory keeps track of the object in the main character's backpack.
+//Items are stored as strings to reduce the number of objects instantiated,
+//and to maintain the state of the object when changing rooms and locations.
 
 class Inventory {
     

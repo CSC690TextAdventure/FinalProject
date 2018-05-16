@@ -1,10 +1,7 @@
-//
-//  Event.swift
-//  LibraryEscape
-//
-//  Created by Scott Penn on 4/3/18.
-//  Copyright © 2018 Scott Bot Industries. All rights reserved.
-//
+//The event protocol. Oh boy.
+//I may have been to ambitious with my design of this protocol.
+//Each object has multiple events depending on the action performed upon it.
+//The events can run multiple times, and change the state of the game, room, and the object
 
 protocol Event {
     
@@ -125,9 +122,80 @@ class StudyCommonsExitInteract : Event {
             eventText = "I try putting more weight on the doors. It's no use. Any more and I'll be charged for destruction of property."
             room.thoughtText = "I'm stuck once again. Maybe there's a key somewhere in the Study Commons."
             room.exits[.South] = "Elevators Ground Floor"
-            RoomDictionary["Study Commons West"]!.exits[.North] = "Study Commons Room M"
+            ObjectDictionary["Computers"]!.LookAtEvent?.eventText = "No luck here. All of the computers are offline. I can't log in."
+            ObjectDictionary["Study Room Doors"]!.LookAtEvent?.eventText = "I should revisit these study rooms again. Maybe one of them is unlocked."
+            ObjectDictionary["Study Room Doors"]!.LookAtEvent?.eventCount = 1
             ObjectDictionary["Study Commons Exit"]!.LookAtEvent?.eventText = "Who designed this building? Locked doors shouldn't block someone on the inside."
             eventCount += 1
         }
+    }
+}
+
+class StudyRoomDoorsLookAt : Event {
+    var eventText = "More study rooms line the walls. I'd rather not go into another one right now."
+    
+    var eventCount = 0
+    func runEvent(in room: Room, for object: Object) {
+        switch eventCount {
+        case 1:
+            eventText = "All of them are locked, except for Study Room M. Who hired the security guard here?"
+            eventCount += 1
+        case 2:
+            eventText = "The door to the study room is unlocked. I should search inside."
+            object.objectName = "Study Room M Door"
+            room.exits[.North] = "Study Commons Room M"
+        default:
+            break
+        }
+    }
+}
+
+class ElevatorCallButtonLookAt : Event {
+    var eventText = "It's a call button for the elevators. I'm drawn to its warm comforting light."
+    
+    var eventCount = 0
+    
+    func runEvent(in room: Room, for object: Object) {
+        eventText = "It's a call button for the elevators. Should I push it again?"
+    }
+}
+
+class ElevatorCallButtonInteract : Event {
+    var eventText = "I push the button no less than ten times. At last the bell rings and the doors open."
+    
+    var eventCount = 0
+    
+    func runEvent(in room: Room, for object: Object) {
+        eventText = "I've pushed it enough, as fun as it can be."
+        ObjectDictionary["Elevator"]!.objectName = "Elevator"
+        ObjectDictionary["Elevator"]!.LookAtEvent = ElevatorLookAt()
+        ObjectDictionary["Elevator"]!.InteractEvent = ElevatorInteract()
+    }
+}
+
+class ElevatorLookAt : Event {
+    var eventText = "It's an elevator. I should hurry before the doors close."
+    
+    var eventCount = 0
+    
+    func runEvent(in room: Room, for object: Object) {
+        if eventCount == 0 {
+            eventText = "It's tempting to let the doors close so that I could push the button again..."
+        }
+    }
+}
+
+class ElevatorInteract : Event {
+    var eventText = "I enter the doors just as they close to embrace me. I've made it!"
+    
+    var eventCount = 0
+    
+    func runEvent(in room: Room, for object: Object) {
+        room.exits[.North] = "Final Room"
+        room.removeObject("Elevator Call Button")
+        object.InteractEvent = nil
+        object.LookAtEvent?.eventText = "It looks like I've arrived, time to head home."
+        object.LookAtEvent?.eventCount = 1
+        room.thoughtText = "Maybe I should press all of the elevator buttons just in case."
     }
 }

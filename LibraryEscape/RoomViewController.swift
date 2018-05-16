@@ -68,8 +68,8 @@ class RoomViewController: UIViewController {
     func updateButtons() {
         roomView?.roomButtons[0].isHidden = (room.exits[.North] == nil)
         roomView?.roomButtons[1].isHidden = (room.exits[.West] == nil)
-        roomView?.roomButtons[2].isHidden = (room.exits[.East] == nil)
-        roomView?.roomButtons[3].isHidden = (room.exits[.South] == nil)
+        roomView?.roomButtons[2].isHidden = (room.exits[.South] == nil)
+        roomView?.roomButtons[3].isHidden = (room.exits[.East] == nil)
     }
     
 }
