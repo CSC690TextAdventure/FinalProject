@@ -44,28 +44,6 @@ public class RoomView : UIView {
         }
     }
     
-    func didTapWestButton() {
-        if room.exits[.West] != nil {
-            delegate?.moveToRoom(RoomDictionary[room.exits[.West]!]!)
-        }
-    }
-    
-    func didTapSouthButton() {
-        if room.exits[.South] != nil {
-            delegate?.moveToRoom(RoomDictionary[room.exits[.South]!]!)
-        }
-    }
-    
-    func didTapEastButton() {
-        if room.exits[.East] != nil {
-            delegate?.moveToRoom(RoomDictionary[room.exits[.East]!]!)
-        }
-    }
-    
-    func didTapRoomName(){
-        delegate?.didTapRoomName()
-    }
-    
 }
 
 class RoomNameLabel : UILabel {
