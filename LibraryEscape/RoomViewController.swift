@@ -78,3 +78,4 @@ protocol RoomViewControllerDelegate {
     func didTapRoomName(_ room : Room)
     func moveToRoom(_ room : Room)
 }
+

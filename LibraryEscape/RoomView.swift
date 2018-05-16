@@ -4,6 +4,7 @@ public class RoomView : UIView {
     
     var roomButtons : [RoomButtonLabel] = (1...4).map {_ in RoomButtonLabel()}
     var textField : RoomNameLabel
+
     let room : Room
     
     init(_ room : Room) {
@@ -41,6 +42,28 @@ public class RoomView : UIView {
         for i in 0..<(min(roomButtons.count, 4)) {
             roomButtons[i].text = Text[i]
         }
+    }
+    
+    func didTapWestButton() {
+        if room.exits[.West] != nil {
+            delegate?.moveToRoom(RoomDictionary[room.exits[.West]!]!)
+        }
+    }
+    
+    func didTapSouthButton() {
+        if room.exits[.South] != nil {
+            delegate?.moveToRoom(RoomDictionary[room.exits[.South]!]!)
+        }
+    }
+    
+    func didTapEastButton() {
+        if room.exits[.East] != nil {
+            delegate?.moveToRoom(RoomDictionary[room.exits[.East]!]!)
+        }
+    }
+    
+    func didTapRoomName(){
+        delegate?.didTapRoomName()
     }
     
 }
@@ -82,3 +105,4 @@ class RoomButtonLabel : UILabel {
         super.init(coder : aDecoder)
     }
 }
+
