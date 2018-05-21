@@ -29,9 +29,50 @@ public class InventoryViewController : UITableViewController {
         self.inventory = Inventory()
         super.init(coder: aDecoder)
     }
+    /*
+    public func loadItems(){
+    
+    }
+    
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Load the sample data.
+        loadItems()
+    }
+    
+    public override func numberOfSections(in tableView: UITableView) -> Int{
+        return 1
+    }
+    
+    public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        return inventory.items.count
+    }
+    
+    
+    public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        
+        let cellIdentifier = "InventoryTableViewCell"
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "InventoryTableViewCell")
+        //tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? InventoryTableViewCell else {
+            fatalError("The dequeued cell is not an instance of InventoryCell")
+        }
+        
+        let item = inventory.items[indexPath.row]
+        cell.value(forKey: item)
+        
+        return cell
+    }
+    */
+    
     
 }
 
+
+
+
+    
 protocol InventoryViewControllerDelegate {
     func inventoryItemWasTapped(_ item : Object)
 }

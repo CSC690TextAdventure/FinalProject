@@ -19,6 +19,7 @@ class GameViewController: UIViewController {
     // The two buttons that switch between top views.
     var roomViewLabel : ViewLabel = ViewLabel("Room")
     var mapViewLabel: ViewLabel = ViewLabel("Map")
+    var inventoryViewLabel: ViewLabel = ViewLabel("Pack")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,15 +33,19 @@ class GameViewController: UIViewController {
         let roomViewTap = UITapGestureRecognizer(target: self, action: #selector(self.roomViewTapped))
         let mapViewTap = UITapGestureRecognizer(target: self, action: #selector(self.mapViewTapped))
         
+        let inventoryViewTap = UITapGestureRecognizer(target: self, action: #selector(self.inventoryViewTapped))
         roomViewLabel.isUserInteractionEnabled = true
         mapViewLabel.isUserInteractionEnabled = true
+        inventoryViewLabel.isUserInteractionEnabled = true
         
         roomViewLabel.addGestureRecognizer(roomViewTap)
         mapViewLabel.addGestureRecognizer(mapViewTap)
+        inventoryViewLabel.addGestureRecognizer(inventoryViewTap)
         
-        //adding the buttons to the view.
+        //adding the buttons to the view.f
         self.view.addSubview(roomViewLabel)
         self.view.addSubview(mapViewLabel)
+        self.view.addSubview(inventoryViewLabel)
         
     }
     
@@ -124,11 +129,18 @@ class GameViewController: UIViewController {
         displayViewLabels()
     }
     
+    @objc func inventoryViewTapped() {
+        displayInventoryView()
+        displayViewLabels()
+    }
+    
     func displayViewLabels() {
         roomViewLabel.removeFromSuperview()
         mapViewLabel.removeFromSuperview()
+        inventoryViewLabel.removeFromSuperview()
         self.view.addSubview(roomViewLabel)
         self.view.addSubview(mapViewLabel)
+        self.view.addSubview(inventoryViewLabel)
         alignViewLabels()
     }
     
@@ -137,6 +149,8 @@ class GameViewController: UIViewController {
         mapViewLabel.align(.bottom, constant: -(UIScreen.main.bounds.height / 2 + 5))
         roomViewLabel.align(.left, constant: 5)
         mapViewLabel.align(.right, constant: -5)
+        inventoryViewLabel.align(.top, constant: 5)
+        inventoryViewLabel.align(.left, constant: 5)
     }
     
 }

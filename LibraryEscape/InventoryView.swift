@@ -15,9 +15,10 @@ public class InventoryView : UITableView {
     init() {
         super.init(frame: CGRect.zero, style: UITableViewStyle.plain)
         setHeight(to: UIScreen.main.bounds.height / 2)
-        backgroundColor = UIColor.orange
-        layer.borderColor = UIColor.white.cgColor
-        layer.borderWidth = 3.0
+        backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        //textColor = #colorLiteral(red: 0.1618045275, green: 0.9652485427, blue: 0.0007898631764, alpha: 1)
+        layer.borderColor = #colorLiteral(red: 0.1618045275, green: 0.9652485427, blue: 0.0007898631764, alpha: 1)
+        layer.borderWidth = 1.0
     }
     
     required public init?(coder aDecoder: NSCoder) {

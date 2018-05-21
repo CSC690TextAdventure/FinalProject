@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE47D5D920B2A8FD00B700E1 /* InventoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47D5D820B2A8FD00B700E1 /* InventoryTableViewCell.swift */; };
 		D24669BE20A27C9800896C52 /* RoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24669BD20A27C9800896C52 /* RoomView.swift */; };
 		D2725EDB2073FE1E0073B19E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2725EDA2073FE1E0073B19E /* AppDelegate.swift */; };
 		D2725EE62073FE1E0073B19E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2725EE42073FE1E0073B19E /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE47D5D820B2A8FD00B700E1 /* InventoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTableViewCell.swift; sourceTree = "<group>"; };
 		D24669BD20A27C9800896C52 /* RoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomView.swift; sourceTree = "<group>"; };
 		D2725ED72073FE1E0073B19E /* LibraryEscape.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LibraryEscape.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2725EDA2073FE1E0073B19E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				D2C1BE7120A504DB0066D6F3 /* InventoryViewController.swift */,
 				D2A9CE6A20A4E5E5004EE81D /* InventoryView.swift */,
 				D2F99E5420AB76A6001E35F9 /* MapView.swift */,
+				CE47D5D820B2A8FD00B700E1 /* InventoryTableViewCell.swift */,
 			);
 			path = LibraryEscape;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				D2725F052073FF390073B19E /* Object.swift in Sources */,
 				D24669BE20A27C9800896C52 /* RoomView.swift in Sources */,
 				D2725F092073FF9C0073B19E /* Inventory.swift in Sources */,
+				CE47D5D920B2A8FD00B700E1 /* InventoryTableViewCell.swift in Sources */,
 				D2F99E5520AB76A6001E35F9 /* MapView.swift in Sources */,
 				D2A9CE6B20A4E5E5004EE81D /* InventoryView.swift in Sources */,
 				D2725F032073FEF50073B19E /* Room.swift in Sources */,
@@ -402,11 +406,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 87T44Z5X44;
+				DEVELOPMENT_TEAM = 35VG4N9M99;
 				INFOPLIST_FILE = LibraryEscape/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ScottBotIndustries.LibraryEscape;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MattRidenour.LibraryEscape;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -418,11 +422,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 87T44Z5X44;
+				DEVELOPMENT_TEAM = 35VG4N9M99;
 				INFOPLIST_FILE = LibraryEscape/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ScottBotIndustries.LibraryEscape;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MattRidenour.LibraryEscape;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
